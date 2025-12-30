@@ -140,3 +140,10 @@ The system makes services more efficient, decreases manual workload and better c
 ## Conclusion
 
 Prinzo provides a well-organised and automation-focused solution to a commonly overlooked and important service workflow. By removing the need for manual communication, imposing constraints at a system level, and ensuring privacy, the platform puts forth how messaging routine services can be transformed through the system and thoughtfulness. The project scores very well on the evaluation criteria of Hackathon as it provides a clear problem statement, has a practical solution, has a working implementation, and has a clear roadmap for enhancement in the future.
+
+
+## Demonstration Video
+
+[![Visualization Video](image/video_thumbnail.png)](video/visualization.mp4)
+
+*Click the image above to play the visualization video.*
