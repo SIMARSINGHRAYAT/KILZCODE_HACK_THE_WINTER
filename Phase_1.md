@@ -146,4 +146,4 @@ Prinzo provides a well-organised and automation-focused solution to a commonly o
 
 [![Visualization Video](image/video_thumbnail.png)](video/visualization.mp4)
 
-*Click the image above to play the visualization video.*
+*Click the image above to download raw file and play the visualization video.*
