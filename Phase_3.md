@@ -15,6 +15,7 @@ This project proposes a **Hybrid-RAG-based adaptive firewall**—a production-or
 
 The core business value is direct: **reduce false negatives**, mitigate recurring-abuse losses earlier, improve consumer trust, support compliance-driven explainability, and enable risk teams to respond faster with interpretable evidence.
 
+GITHUB Reference Link -> https://github.com/PhoniexCoder/Recurring-Payment-Firewall
 ---
 
 ## Team
