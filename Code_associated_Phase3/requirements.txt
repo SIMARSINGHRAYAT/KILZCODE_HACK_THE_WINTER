@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+motor
+pydantic
+pydantic-settings
+python-dotenv
+pandas
+rapidfuzz
+google-generativeai
+pytest
+httpx

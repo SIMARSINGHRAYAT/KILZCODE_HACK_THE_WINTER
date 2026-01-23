@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Recurring Payment Firewall",
+  "version": "1.0.0",
+  "description": "Evaluate subscription transactions using the Recurring Payment Firewall API.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Recurring Firewall"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

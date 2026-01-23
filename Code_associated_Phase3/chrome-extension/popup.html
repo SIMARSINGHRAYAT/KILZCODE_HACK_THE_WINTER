@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recurring Payment Firewall</title>
+    <link rel="stylesheet" href="popup.css">
+    <!-- Optional: Add Inter font if possible, using system fonts for now -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Recurring Firewall</h3>
+            <div class="settings-link" id="openOptions" title="Settings">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="row">
+                <input type="text" id="merchantId" placeholder="Merchant ID" value="mer_123">
+                <input type="text" id="customerId" placeholder="Customer ID" value="cus_456">
+            </div>
+            <div class="row">
+                <input type="number" id="amount" placeholder="Amount" value="123.45">
+                <input type="text" id="currency" placeholder="Currency" value="INR">
+            </div>
+            <!-- Detected Amount Display -->
+            <div id="detectedAmountDisplay"
+                style="font-size: 10px; color: #666; margin-top: -8px; margin-bottom: 8px; text-align: right; padding-right: 4px; display: none;">
+                Detected: <span id="detectedAmountValue">--</span>
+            </div>
+            <div class="row">
+                <input type="text" id="planId" placeholder="Plan ID" value="plan_basic" style="grid-column: span 2;">
+            </div>
+
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="isRecurring" checked> Recurring</label>
+                <label><input type="checkbox" id="wasCustomerCancelled"> Canceled</label>
+            </div>
+
+            <div class="presets">
+                <small>Quick Fill:</small>
+                <button class="preset-btn" data-preset="good">Good</button>
+                <button class="preset-btn" data-preset="trial">Forced Trial</button>
+                <button class="preset-btn" data-preset="cancel">Post-Cancel</button>
+                <button class="preset-btn" data-preset="micro">Micro</button>
+            </div>
+
+            <button id="evaluateBtn" class="primary-btn">Evaluate Transaction</button>
+
+            <!-- Result Panel -->
+            <div id="resultPanel" class="result-panel hidden">
+                <div class="result-header">
+                    <span id="decisionLabel" class="decision">LOADING...</span>
+                    <span id="trustScoreLabel" class="score-badge">--</span>
+                </div>
+                <div class="result-details">
+                    <div class="detail-row"><span>Risk:</span> <span id="riskLabel">--</span></div>
+                    <div class="detail-row"><span>Time:</span> <span id="latencyLabel">--</span>ms</div>
+                    <div class="rules-row" id="rulesLabel">--</div>
+                </div>
+                <!-- Investigate Button inside Result Panel for better context -->
+                <button id="investigateBtn" class="secondary-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Investigate
+                </button>
+            </div>
+        </div>
+
+
+        <div id="investigationPanel" class="investigation-panel hidden">
+            <h4>AI Investigation</h4>
+            <div id="investigationContent">Loading...</div>
+            <div id="cancellationSteps" class="cancellation-steps hidden"></div>
+        </div>
+
+        <div class="history-section">
+            <h4>History</h4>
+            <table id="historyTable">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Dec</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- History rows here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <span id="apiUrlDisplay">API: Loading...</span>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

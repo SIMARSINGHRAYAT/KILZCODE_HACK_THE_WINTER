@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recurring Firewall Options</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      padding: 20px;
+      max-width: 400px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .status {
+      margin-top: 10px;
+      color: green;
+      font-size: 0.9em;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <h2>Extension Options</h2>
+  
+  <div class="form-group">
+    <label for="firewallBaseUrl">Firewall API Base URL:</label>
+    <input type="text" id="firewallBaseUrl" placeholder="https://firewall.example.com">
+    <small style="color: #666; display: block; margin-top: 4px;">Default: http://localhost:3000</small>
+  </div>
+
+  <button id="save">Save</button>
+  <div id="status" class="status">Options saved.</div>
+
+  <script src="options.js"></script>
+</body>
+</html>
